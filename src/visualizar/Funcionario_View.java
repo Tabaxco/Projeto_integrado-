@@ -7,10 +7,6 @@ package visualizar;
 import javax.swing.JOptionPane;
 import modelos.Funcionario;
 
-/**
- *
- * @author tabaxco
- */
 public class Funcionario_View extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Funcionario_View.class.getName());
@@ -18,33 +14,19 @@ public class Funcionario_View extends javax.swing.JFrame {
     public Funcionario_View() {
         initComponents();
         setTitle("Gerenciamento de Funcionários");
-        setLocationRelativeTo(null); // Centraliza na tela
-
-        // OPCIONAL: Se você não quiser que o usuário redimensione a janela (evita a segunda imagem)
-        // descomente a linha abaixo:
-        // setResizable(false);
-
-        // Desabilita edição da data (gerada pelo sistema)
+        setLocationRelativeTo(null);
         textData.setEditable(false);
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
 
-        // --- Inicialização dos Componentes ---
-
-        // Busca
         jLabel4 = new javax.swing.JLabel("ID Funcionário:");
         textIDF = new javax.swing.JTextField();
         readButton = new javax.swing.JButton("Buscar");
 
-        // Dados Pessoais
         jLabel1 = new javax.swing.JLabel("Nome Completo:");
         textNome = new javax.swing.JTextField();
 
@@ -54,7 +36,6 @@ public class Funcionario_View extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel("E-mail:");
         textEmail = new javax.swing.JTextField();
 
-        // Dados Profissionais
         javax.swing.JLabel lblCargo = new javax.swing.JLabel("Função/Cargo:");
         textFunc = new javax.swing.JTextField();
 
@@ -67,20 +48,17 @@ public class Funcionario_View extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel("Data Contratação:");
         textData = new javax.swing.JTextField();
 
-        // Dados de Acesso
         jLabel7 = new javax.swing.JLabel("Usuário (Login):");
         textUser = new javax.swing.JTextField();
 
         jLabel9 = new javax.swing.JLabel("Senha:");
         textSenha = new javax.swing.JTextField();
 
-        // Botões
         addButton = new javax.swing.JButton("Adicionar");
         altButton = new javax.swing.JButton("Alterar");
         delButton = new javax.swing.JButton("Deletar");
-        returnButton = new javax.swing.JButton("Sair");
+        returnButton = new javax.swing.JButton("Voltar");
 
-        // Listeners
         addButton.addActionListener(this::addButtonActionPerformed);
         altButton.addActionListener(this::altButtonActionPerformed);
         delButton.addActionListener(this::delButtonActionPerformed);
@@ -91,65 +69,45 @@ public class Funcionario_View extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        // --- Configuração do Layout GroupLayout ---
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
 
-        // Cria margens automáticas
         jPanel1Layout.setAutoCreateGaps(true);
         jPanel1Layout.setAutoCreateContainerGaps(true);
 
-        // GRUPO HORIZONTAL
-        // Aqui está a mágica: addComponent(componente, min, preferido, max)
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-                        // Linha 1: Busca (ID) - Tamanho fixo pequeno para o ID
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addComponent(textIDF, 80, 80, 80)
                                 .addComponent(readButton))
-
-                        // Linha 2: Nome - Pode crescer bastante (até 500px)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textNome, 250, 300, 500))
-
-                        // Linha 3: Telefone e Email - Email cresce mais que telefone
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textTelefone, 120, 130, 150)
                                 .addGap(20)
                                 .addComponent(jLabel3)
                                 .addComponent(textEmail, 150, 200, 350))
-
-                        // Linha 4: Cargo e Departamento - (CORREÇÃO AQUI)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textFunc, 130, 150, 200)
                                 .addGap(20)
                                 .addComponent(jLabel6)
-                                // Departamento: Mínimo 130, Preferido 150, Máximo 250 (não estica muito)
                                 .addComponent(textDepartamento, 130, 150, 250))
-
-                        // Linha 5: Salário e Data - (CORREÇÃO AQUI)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textSalario, 100, 120, 150)
                                 .addGap(20)
                                 .addComponent(jLabel8)
-                                // Data: Tamanho mais fixo, não precisa crescer muito
                                 .addComponent(textData, 110, 120, 140))
-
-                        // Linha 6: Usuário e Senha
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textUser, 120, 140, 200)
                                 .addGap(20)
                                 .addComponent(jLabel9)
                                 .addComponent(textSenha, 120, 140, 200))
-
-                        // Linha 7: Botões
                         .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
                                 .addGap(20)
                                 .addComponent(addButton)
@@ -159,53 +117,38 @@ public class Funcionario_View extends javax.swing.JFrame {
                                 .addGap(20))
         );
 
-        // GRUPO VERTICAL (Não precisa mudar muito aqui)
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createSequentialGroup()
-                        // Busca
                         .addGap(10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4)
                                 .addComponent(textIDF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(readButton))
                         .addGap(20)
-
-                        // Nome
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel1)
                                 .addComponent(textNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                        // Telefone/Email
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel2)
                                 .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3)
                                 .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                        // Cargo/Depto
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblCargo)
                                 .addComponent(textFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel6)
                                 .addComponent(textDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                        // Salario/Data
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel5)
                                 .addComponent(textSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel8)
                                 .addComponent(textData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
-                        // User/Senha
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel7)
                                 .addComponent(textUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel9)
                                 .addComponent(textSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-
                         .addGap(30)
-
-                        // Botões
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(addButton)
                                 .addComponent(altButton)
@@ -226,7 +169,7 @@ public class Funcionario_View extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>
+    }
 
     private void altButtonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
@@ -361,7 +304,7 @@ public class Funcionario_View extends javax.swing.JFrame {
     }
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // new MenuPrincipal().setVisible(true);
+        new MenuPrincipal().setVisible(true);
         dispose();
     }
 
@@ -392,7 +335,6 @@ public class Funcionario_View extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new Funcionario_View().setVisible(true));
     }
 
-    // Variables declaration - do not modify
     private javax.swing.JButton addButton;
     private javax.swing.JButton altButton;
     private javax.swing.JButton delButton;
@@ -418,5 +360,4 @@ public class Funcionario_View extends javax.swing.JFrame {
     private javax.swing.JTextField textSenha;
     private javax.swing.JTextField textTelefone;
     private javax.swing.JTextField textUser;
-    // End of variables declaration
 }

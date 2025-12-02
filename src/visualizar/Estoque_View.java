@@ -57,7 +57,7 @@ public class Estoque_View extends javax.swing.JFrame {
         addButton = new javax.swing.JButton("Adicionar");
         altButton = new javax.swing.JButton("Alterar");
         delButton = new javax.swing.JButton("Deletar");
-        returnButton = new javax.swing.JButton("Sair");
+        returnButton = new javax.swing.JButton("Voltar");
 
         addButton.addActionListener(this::addButtonActionPerformed);
         altButton.addActionListener(this::altButtonActionPerformed);
@@ -291,6 +291,7 @@ public class Estoque_View extends javax.swing.JFrame {
     }
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        new MenuPrincipal().setVisible(true);
         dispose();
     }
 
