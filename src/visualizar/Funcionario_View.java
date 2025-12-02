@@ -6,7 +6,6 @@ package visualizar;
 
 import javax.swing.JOptionPane;
 import modelos.Funcionario;
-import java.awt.Color;
 
 /**
  *
@@ -20,6 +19,10 @@ public class Funcionario_View extends javax.swing.JFrame {
         initComponents();
         setTitle("Gerenciamento de Funcionários");
         setLocationRelativeTo(null); // Centraliza na tela
+
+        // OPCIONAL: Se você não quiser que o usuário redimensione a janela (evita a segunda imagem)
+        // descomente a linha abaixo:
+        // setResizable(false);
 
         // Desabilita edição da data (gerada pelo sistema)
         textData.setEditable(false);
@@ -52,9 +55,8 @@ public class Funcionario_View extends javax.swing.JFrame {
         textEmail = new javax.swing.JTextField();
 
         // Dados Profissionais
-        // Nota: textFuncao era Label no original, alterei nome da variavel para evitar confusão com textFunc (campo)
         javax.swing.JLabel lblCargo = new javax.swing.JLabel("Função/Cargo:");
-        textFunc = new javax.swing.JTextField(); // Campo do Cargo
+        textFunc = new javax.swing.JTextField();
 
         jLabel6 = new javax.swing.JLabel("Departamento:");
         textDepartamento = new javax.swing.JTextField();
@@ -70,7 +72,7 @@ public class Funcionario_View extends javax.swing.JFrame {
         textUser = new javax.swing.JTextField();
 
         jLabel9 = new javax.swing.JLabel("Senha:");
-        textSenha = new javax.swing.JTextField(); // Idealmente seria JPasswordField
+        textSenha = new javax.swing.JTextField();
 
         // Botões
         addButton = new javax.swing.JButton("Adicionar");
@@ -98,51 +100,54 @@ public class Funcionario_View extends javax.swing.JFrame {
         jPanel1Layout.setAutoCreateContainerGaps(true);
 
         // GRUPO HORIZONTAL
+        // Aqui está a mágica: addComponent(componente, min, preferido, max)
         jPanel1Layout.setHorizontalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 
-                        // Linha 1: Busca (ID)
+                        // Linha 1: Busca (ID) - Tamanho fixo pequeno para o ID
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addComponent(textIDF, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textIDF, 80, 80, 80)
                                 .addComponent(readButton))
 
-                        // Linha 2: Nome
+                        // Linha 2: Nome - Pode crescer bastante (até 500px)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textNome))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textNome, 250, 300, 500))
 
-                        // Linha 3: Telefone e Email
+                        // Linha 3: Telefone e Email - Email cresce mais que telefone
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textTelefone, 120, 130, 150)
                                 .addGap(20)
                                 .addComponent(jLabel3)
-                                .addComponent(textEmail))
+                                .addComponent(textEmail, 150, 200, 350))
 
-                        // Linha 4: Cargo e Departamento
+                        // Linha 4: Cargo e Departamento - (CORREÇÃO AQUI)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textFunc, 130, 150, 200)
                                 .addGap(20)
                                 .addComponent(jLabel6)
-                                .addComponent(textDepartamento))
+                                // Departamento: Mínimo 130, Preferido 150, Máximo 250 (não estica muito)
+                                .addComponent(textDepartamento, 130, 150, 250))
 
-                        // Linha 5: Salário e Data
+                        // Linha 5: Salário e Data - (CORREÇÃO AQUI)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textSalario, 100, 120, 150)
                                 .addGap(20)
                                 .addComponent(jLabel8)
-                                .addComponent(textData))
+                                // Data: Tamanho mais fixo, não precisa crescer muito
+                                .addComponent(textData, 110, 120, 140))
 
                         // Linha 6: Usuário e Senha
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textUser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textUser, 120, 140, 200)
                                 .addGap(20)
                                 .addComponent(jLabel9)
-                                .addComponent(textSenha))
+                                .addComponent(textSenha, 120, 140, 200))
 
                         // Linha 7: Botões
                         .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel1Layout.createSequentialGroup()
@@ -154,7 +159,7 @@ public class Funcionario_View extends javax.swing.JFrame {
                                 .addGap(20))
         );
 
-        // GRUPO VERTICAL
+        // GRUPO VERTICAL (Não precisa mudar muito aqui)
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createSequentialGroup()
                         // Busca
@@ -229,7 +234,7 @@ public class Funcionario_View extends javax.swing.JFrame {
             String nome = textNome.getText();
             String telefone = textTelefone.getText();
             String cargo = textFunc.getText();
-            double salario = Double.parseDouble(textSalario.getText().replace(",", ".")); // Garante formato numérico
+            double salario = Double.parseDouble(textSalario.getText().replace(",", "."));
             String departamento = textDepartamento.getText();
             String email = textEmail.getText();
             String usuario = textUser.getText();
@@ -249,6 +254,7 @@ public class Funcionario_View extends javax.swing.JFrame {
 
             DAO.Funcionario_DAO.atualizar(altFuncionario);
             JOptionPane.showMessageDialog(null, "Funcionário atualizado corretamente.");
+            limparCampos();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar funcionário: " + e.getMessage());
         }
@@ -294,10 +300,7 @@ public class Funcionario_View extends javax.swing.JFrame {
             if (readFuncionario != null) {
                 textNome.setText(readFuncionario.getNome());
                 textFunc.setText(readFuncionario.getCargo());
-
-                // NOTA: Removi o "R$" aqui para não dar erro se você clicar em "Alterar" depois
                 textSalario.setText(Double.toString(readFuncionario.getSalario()));
-
                 textEmail.setText(readFuncionario.getEmail());
                 textTelefone.setText(readFuncionario.getTelefone());
 
@@ -328,7 +331,6 @@ public class Funcionario_View extends javax.swing.JFrame {
             String telefone = textTelefone.getText();
             String cargo = textFunc.getText();
 
-            // Tratamento simples para vírgula
             String salStr = textSalario.getText().replace(",", ".");
             double salario = Double.parseDouble(salStr);
 
@@ -359,11 +361,10 @@ public class Funcionario_View extends javax.swing.JFrame {
     }
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // new MenuPrincipal().setVisible(true); // Descomente se tiver menu
+        // new MenuPrincipal().setVisible(true);
         dispose();
     }
 
-    // Método para limpar campos
     private void limparCampos() {
         textNome.setText("");
         textTelefone.setText("");
@@ -374,12 +375,8 @@ public class Funcionario_View extends javax.swing.JFrame {
         textUser.setText("");
         textSenha.setText("");
         textData.setText("");
-        // textIDF.setText("");
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -392,7 +389,6 @@ public class Funcionario_View extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Funcionario_View().setVisible(true));
     }
 
