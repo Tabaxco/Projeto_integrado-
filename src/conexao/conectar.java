@@ -21,9 +21,9 @@ public class conectar {
             return DriverManager.getConnection(URL, USER, PASSWORD);
             
          } catch (ClassNotFoundException e) {
-            System.out.println("❌ Driver JDBC não encontrado: " + e.getMessage());
+            System.out.println("Driver JDBC não encontrado: " + e.getMessage());
         } catch (SQLException e) {
-            System.out.println("❌ Erro ao conectar: " + e.getMessage());
+            System.out.println("Erro ao conectar: " + e.getMessage());
         }
         return null;
     }
