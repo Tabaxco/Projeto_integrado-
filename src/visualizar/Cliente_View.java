@@ -32,7 +32,7 @@ public class Cliente_View extends JFrame {
     public Cliente_View() {
         initComponents();
         setTitle("Sistema DahoDB - Gerenciamento de Clientes");
-        setSize(1600, 1000);
+        setSize(1700, 1000);
         textData.setEditable(false);
         setLocationRelativeTo(null);
     }

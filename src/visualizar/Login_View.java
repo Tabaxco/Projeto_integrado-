@@ -23,6 +23,7 @@ public class Login_View extends JFrame {
     private JTextField textUser;
     private JPasswordField textSenha;
     private JButton btnLogin;
+    private JButton btnRegister;
 
     public Login_View() {
         initComponents();
@@ -78,6 +79,23 @@ public class Login_View extends JFrame {
         gbc.insets = new Insets(30, 0, 0, 0);
         btnLogin = createButton("Entrar no Sistema");
         cardPanel.add(btnLogin, gbc);
+
+        gbc.gridy++;
+        gbc.insets = new Insets(10, 0, 0, 0);
+
+        btnRegister = new JButton("Não tem conta? Cadastre-se");
+        btnRegister.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        btnRegister.setForeground(BTN_PRIMARY);
+        btnRegister.setContentAreaFilled(false);
+        btnRegister.setBorderPainted(false);
+        btnRegister.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        btnRegister.addActionListener(e -> {
+            new Cadastro_View().setVisible(true);
+            dispose();
+        });
+
+        cardPanel.add(btnRegister, gbc);
 
         mainPanel.add(cardPanel);
         setContentPane(mainPanel);
